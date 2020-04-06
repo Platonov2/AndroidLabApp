@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    TextView mainTextView, dialogTextView1, dialogTextView2, dialogTextView3, dialogTextView4;
     Button button;
 
     @Override
@@ -26,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         DialogFragment newFragment = new Dialog1();
         newFragment.show(getSupportFragmentManager(), "dialog");
 
-        textView = findViewById(R.id.mainTextView);
+        mainTextView = findViewById(R.id.mainTextView);
         button = findViewById(R.id.changeTextButton);
 
         View.OnClickListener buttonOnClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setText("Other text");
+                mainTextView.setText("Other text");
             }
         };
 
@@ -79,5 +80,27 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onDialogApply(){
+        dialogTextView1 = findViewById(R.id.dialogTextView1);
+        dialogTextView2 = findViewById(R.id.dialogTextView2);
+        dialogTextView3 = findViewById(R.id.dialogTextView3);
+        dialogTextView4 = findViewById(R.id.dialogTextView4);
+
+        dialogTextView1.setVisibility(View.VISIBLE);
+        dialogTextView1.setTextColor(Color.parseColor("#121910"));
+
+        dialogTextView2.setVisibility(View.VISIBLE);
+        dialogTextView2.setTextColor(Color.parseColor("#2271b3"));
+
+        dialogTextView3.setVisibility(View.VISIBLE);
+        dialogTextView3.setTextColor(Color.parseColor("#6c3b2a"));
+
+        dialogTextView4.setVisibility(View.VISIBLE);
+        dialogTextView4.setTextColor(Color.parseColor("#000000"));
+    }
+
+    public void onDialogDismiss(){
     }
 }
