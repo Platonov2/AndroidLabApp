@@ -1,83 +1,54 @@
 package com.example.androidlab;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    EditText editTextFIO, editTextLogin, editTextPassword, editTextPhone;
     Button button;
+
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DialogFragment newFragment = new Dialog1();
-        newFragment.show(getSupportFragmentManager(), "dialog");
-
-        textView = findViewById(R.id.mainTextView);
-        button = findViewById(R.id.changeTextButton);
-
-        View.OnClickListener buttonOnClick = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText("Other text");
-            }
-        };
-
-        button.setOnClickListener(buttonOnClick);
+        button = findViewById(R.id.button);
+        editTextFIO = findViewById(R.id.editTextFIO);
+        editTextLogin = findViewById(R.id.editTextLogin);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextPhone = findViewById(R.id.editTextPhone);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
+    public void onClickButton(View view) {
+        Intent intent = new Intent(this, SecondActivity.class);
 
+        sharedPreferences = getSharedPreferences("APP_PREFERENCES", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case (R.id.account): {
-                Toast toast = Toast.makeText(getApplicationContext(), "account", Toast.LENGTH_SHORT);
-                toast.show();
-                break;
-            }
-            case (R.id.android): {
-                Toast toast = Toast.makeText(getApplicationContext(), "android", Toast.LENGTH_SHORT);
-                toast.show();
-                break;
-            }
-            case (R.id.bank): {
-                Toast toast = Toast.makeText(getApplicationContext(), "balance", Toast.LENGTH_SHORT);
-                toast.show();
-                break;
-            }
-            case (R.id.bug): {
-                Toast toast = Toast.makeText(getApplicationContext(), "bug", Toast.LENGTH_SHORT);
-                toast.show();
-                break;
-            }
-            case (R.id.build): {
-                Toast toast = Toast.makeText(getApplicationContext(), "forward", Toast.LENGTH_SHORT);
-                toast.show();
-                break;
-            }
+        // Имя и логин сохраняются в память через SharedPreferences
+        // *Данные перезаписываются только если в поле введено хоть что-нибудь
+        if (!editTextFIO.getText().toString().equals("") && !editTextLogin.getText().toString().equals("")){
+            editor.putString("FIO", editTextFIO.getText().toString());
+            editor.putString("Login", editTextLogin.getText().toString());
+
+            editor.apply();
         }
 
-        return super.onOptionsItemSelected(item);
+        // Пароль и телефон передаются во вторую активити каждый раз через Intent
+        intent.putExtra("Password", editTextPassword.getText().toString());
+        intent.putExtra("Phone", editTextPhone.getText().toString());
+
+        startActivity(intent);
     }
 }
