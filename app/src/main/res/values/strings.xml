@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AndroidLab</string>
-    <string name="dialogText">DialogText</string>
-    <string name="apply">Apply</string>
-    <string name="cancel">Cancel</string>
+    <string name="dialogText">Отобразить больше элементов?</string>
+    <string name="apply">Да</string>
+    <string name="cancel">Нет</string>
     <string name="account">account</string>
     <string name="android">android</string>
     <string name="bank">bank</string>
