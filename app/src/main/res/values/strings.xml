@@ -7,4 +7,7 @@
     <string name="editTextPasswordHint">Введите пароль</string>
     <string name="editTextPhoneHint">Введите телефон</string>
     <string name="secondActivityTextView">Сейчас вы на втором активити</string>
+    <string name="errorMessage">Error occurred while getting request!</string>
+    <string name="findPostTextButton">Найти пост</string>
+    <string name="id">Введите ID поста</string>
 </resources>
