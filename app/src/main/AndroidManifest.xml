@@ -14,12 +14,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".JsonLab.JsonActivity" tools:ignore="InnerclassSeparator">
+        <activity android:name=".ListLab.JsonActivity" tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListLab.ListActivity"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>

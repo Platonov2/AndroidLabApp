@@ -10,4 +10,5 @@
     <string name="errorMessage">Error occurred while getting request!</string>
     <string name="findPostTextButton">Найти пост</string>
     <string name="id">Введите ID поста</string>
+    <string name="goToListActivityButtonText">Просмотреть список запросов</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.androidlab.JsonLab;
+package com.example.androidlab.ListLab;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
