@@ -13,7 +13,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     EditText editTextFIO, editTextLogin, editTextPassword, editTextPhone;
-    Button button;
+    Button buttonActivity;
 
     SharedPreferences sharedPreferences;
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
+        buttonActivity = findViewById(R.id.buttonActivity);
         editTextFIO = findViewById(R.id.editTextFIO);
         editTextLogin = findViewById(R.id.editTextLogin);
         editTextPassword = findViewById(R.id.editTextPassword);
