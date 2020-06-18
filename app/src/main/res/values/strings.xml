@@ -2,9 +2,12 @@
 
     <string name="editTextLoginHint">Введите логин</string>
     <string name="editTextFIOHint">Введите имя</string>
-    <string name="mainActivityButton">Перейти на второе активити</string>
+    <string name="mainActivityButton">Начать анимации</string>
     <string name="firstActivityTextView">Сейчас Вы на первом активити</string>
     <string name="editTextPasswordHint">Введите пароль</string>
     <string name="editTextPhoneHint">Введите телефон</string>
     <string name="secondActivityTextView">Сейчас вы на втором активити</string>
+    <string name="changeFieldText">Текст</string>
+    <string name="alpha">Alpha</string>
+    <string name="rotate">Rotate</string>
 </resources>
